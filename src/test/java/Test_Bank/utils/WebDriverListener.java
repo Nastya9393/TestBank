@@ -11,7 +11,6 @@ import org.openqa.selenium.support.events.WebDriverEventListener;
 public class WebDriverListener implements WebDriverEventListener {
     private final Logger log = LogManager.getRootLogger();
 
-
     @Override
     public void beforeAlertAccept(WebDriver webDriver) {
 
@@ -147,4 +146,3 @@ public class WebDriverListener implements WebDriverEventListener {
 
     }
 }
-

@@ -9,36 +9,36 @@ import org.openqa.selenium.support.events.EventFiringWebDriver;
 import java.util.concurrent.TimeUnit;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-
 public class DriverSingleton {
     static Logger log = LogManager.getRootLogger();
+
+
+    //private static EventFiringWebDriver driver;
 
     private static WebDriver driver;
     private DriverSingleton() {
             }
 
     public static WebDriver getDriver() {
-
         if (driver == null) {
             driverStart();
-         }
+        }
+        log.info("Драйвер запущен");
         return driver;
     }
-
-        private static void driverStart(){
-            WebDriverManager.chromedriver ().setup ();
-            driver = new EventFiringWebDriver (new ChromeDriver());
-
-            driver.manage().window().maximize();
-            driver.manage().deleteAllCookies();
-            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-        }
-
+    private static void driverStart(){
+        WebDriverManager.chromedriver ().setup ();
+        //driver.register(new WebDriverListener());
+        driver = new EventFiringWebDriver (new ChromeDriver());
+        driver.manage().window().maximize();
+        driver.manage().deleteAllCookies();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    }
 
     public static void closeDriver() {
         if (driver != null) {
             driver.quit();
+            log.info("Драйвер закрыт");
             driver = null;
         }
     }
