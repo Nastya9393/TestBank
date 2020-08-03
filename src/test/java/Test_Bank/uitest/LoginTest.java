@@ -5,25 +5,21 @@ import Test_Bank.page.ErrorPage.ErrorPage;
 import Test_Bank.page.SigninPage.SigninPage;
 import Test_Bank.utils.Screenshot;
 import io.qameta.allure.*;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import Test_Bank.Driver.DriverSingleton;
 
 public class LoginTest extends BaseTest {
     ConfirmationPage confirmationPage;
     SigninPage signinPage;
-    ErrorPage errorMessagePage;
+    ErrorPage errorPage;
 
     @BeforeMethod
     public void setup() {
         signinPage = new SigninPage();
         confirmationPage = new ConfirmationPage();
-        errorMessagePage = new ErrorPage();
-        ChromeOptions option = new ChromeOptions();
-        option.setHeadless(true); // true - браузер не запускается
+        errorPage = new ErrorPage();
         signinPage.open();
         signinPage.clearLogin();
         signinPage.clearPassword();
@@ -35,6 +31,7 @@ public class LoginTest extends BaseTest {
         super.tearDown();
         signinPage = null;
         confirmationPage = null;
+        errorPage = null;
     }
 
     @Test(description = "Все поля заполнены верно")
@@ -61,7 +58,7 @@ public class LoginTest extends BaseTest {
     public void loginWithEmptyFields() {
         signinPage.clickLoginButton();
         Screenshot.saveScreenshot();
-        Assert.assertTrue(errorMessagePage.isDispalyed());
+        Assert.assertFalse(errorPage.isDispalyed());
 
     }
 
@@ -75,7 +72,7 @@ public class LoginTest extends BaseTest {
         signinPage.insertPassword("demo");
         signinPage.clickLoginButton();
         Screenshot.saveScreenshot();
-        Assert.assertTrue(errorMessagePage.isDispalyed());
+        Assert.assertFalse(errorPage.isDispalyed());
 
     }
 
@@ -90,7 +87,7 @@ public class LoginTest extends BaseTest {
         signinPage.insertPassword("5555");
         signinPage.clickLoginButton();
         Screenshot.saveScreenshot();
-        Assert.assertTrue(errorMessagePage.isDispalyed());
+        Assert.assertFalse(errorPage.isDispalyed());
 
     }
 }

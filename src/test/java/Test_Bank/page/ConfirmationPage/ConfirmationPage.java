@@ -4,17 +4,18 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import Test_Bank.page.BasePage;
 
-import static Test_Bank.page.ConfirmationPage.ConfirmationPageLocators.confirmationWindow;
+import static Test_Bank.page.ConfirmationPage.ConfirmationPageLocators.CONFIRMATOR;
 
 public class ConfirmationPage extends BasePage {
 
     public WebElement lookForElement(By by) {
-    return super.lookForElement(by);
+        return super.lookForElement(by);
     }
 
     public boolean isDispalyed() {
-        return lookForElement(confirmationWindow).isDisplayed();
+        return lookForElement(CONFIRMATOR).isDisplayed();
     }
+
 }
 
 
