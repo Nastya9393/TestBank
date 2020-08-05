@@ -37,7 +37,7 @@ public class LoginTest extends BaseTest {
     @Test(description = "Все поля заполнены верно")
     @Epic("Testing https://idemo.bspb.ru/")
     @Feature(value = "Testing bank")
-    @Description ("authorization passed")
+    @Description ("Authorization passed")
     @Severity(SeverityLevel.CRITICAL)
     @Story("Log in with valid credentials")
     public void validData() {

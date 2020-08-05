@@ -13,7 +13,6 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class DriverSingleton {
     static Logger log = LogManager.getRootLogger();
 
-    //private static EventFiringWebDriver driver;
     private static WebDriver driver;
     private DriverSingleton() {
     }
@@ -30,7 +29,6 @@ public class DriverSingleton {
         WebDriverManager.chromedriver ().setup ();
         ChromeOptions options = new ChromeOptions();
         options.setHeadless(true); // true - браузер не запускается
-        //driver.register(new WebDriverListener());
         driver = new EventFiringWebDriver (new ChromeDriver(options));
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();

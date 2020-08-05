@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import Test_Bank.page.BasePage;
 
-import static Test_Bank.page.ConfirmationPage.ConfirmationPageLocators.CONFIRMATOR;
+import static Test_Bank.page.ConfirmationPage.ConfirmationPageLocators.CONFIRMATION;
 
 public class ConfirmationPage extends BasePage {
 
@@ -13,7 +13,7 @@ public class ConfirmationPage extends BasePage {
     }
 
     public boolean isDispalyed() {
-        return lookForElement(CONFIRMATOR).isDisplayed();
+        return lookForElement(CONFIRMATION).isDisplayed();
     }
 
 }

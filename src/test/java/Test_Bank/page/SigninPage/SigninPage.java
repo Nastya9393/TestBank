@@ -4,9 +4,9 @@ import Test_Bank.page.BasePage;
 import io.qameta.allure.Step;
 import org.apache.log4j.Logger;
 
-import static Test_Bank.page.SigninPage.SigninPageLocator.usernameInput;
-import static Test_Bank.page.SigninPage.SigninPageLocator.passwordInput;
-import static Test_Bank.page.SigninPage.SigninPageLocator.signInButton;
+import static Test_Bank.page.SigninPage.SigninPageLocator.USERNAMEINPUT;
+import static Test_Bank.page.SigninPage.SigninPageLocator.PASSWORDINPUT;
+import static Test_Bank.page.SigninPage.SigninPageLocator.SIGNINBUTTON;
 
 public class SigninPage extends BasePage {
     private static final Logger log = Logger.getLogger(SigninPage.class);
@@ -15,31 +15,31 @@ public class SigninPage extends BasePage {
 
     @Step("Clear Login")
     public void clearLogin() {
-        lookForElement(usernameInput).clear();
+        lookForElement(USERNAMEINPUT).clear();
         log.info("Очистили поле логина");
     }
 
     @Step("Insert Login")
     public void insertLogin(String login) {
-        lookForElement(usernameInput).sendKeys(login);
+        lookForElement(USERNAMEINPUT).sendKeys(login);
         log.info("Ввели пароль");
     }
 
     @Step("Clear Password")
     public void clearPassword() {
-        lookForElement(passwordInput).clear();
+        lookForElement(PASSWORDINPUT).clear();
         log.info("Очистили поле пароля");
     }
 
     @Step("Insert Password")
     public void insertPassword(String password) {
-        lookForElement(passwordInput).sendKeys(password);
+        lookForElement(PASSWORDINPUT).sendKeys(password);
         log.info("Ввели пароль");
     }
 
     @Step("Click Button")
     public void clickLoginButton() {
-        lookForElement(signInButton).click();
+        lookForElement(SIGNINBUTTON).click();
         log.info("Нажали кнопку 'Войти'");
     }
 
